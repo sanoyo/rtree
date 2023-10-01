@@ -33,7 +33,7 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/fatih/color"
-	"github.com/orangekame3/stree/pkg"
+	"github.com/sanoyo/rtree/pkg"
 
 	"github.com/ddddddO/gtree"
 )

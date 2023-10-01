@@ -24,7 +24,7 @@ package main
 import (
 	"time"
 
-	"github.com/orangekame3/stree/cmd"
+	"github.com/sanoyo/rtree/cmd"
 )
 
 func main() {

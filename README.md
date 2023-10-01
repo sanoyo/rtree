@@ -6,4 +6,4 @@
 
 # Acknowledgments
 
-The concept of "rtree" was inspired by the pioneering work seen in [stree](https://github.com/orangekame3/stree). I'm grateful for the inspiration.
+The concept of "rtree" was inspired by the pioneering work seen in [stree](https://github.com/sanoyo/rtree). I'm grateful for the inspiration.

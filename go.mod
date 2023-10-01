@@ -1,4 +1,4 @@
-module github.com/orangekame3/stree
+module github.com/sanoyo/rtree
 
 go 1.21
 
