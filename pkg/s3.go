@@ -24,7 +24,7 @@ func InitializeAWSSession(config S3Config) *s3.S3 {
 		sessOptions := session.Options{
 			Profile: config.AwsProfile,
 			Config: aws.Config{
-				Region:           aws.String("us-east-1"),
+				Region:           aws.String("ap-northeast-1"),
 				Endpoint:         aws.String("http://localhost:4566"),
 				S3ForcePathStyle: aws.Bool(true),
 			},
@@ -49,7 +49,8 @@ func InitializeAWSSession(config S3Config) *s3.S3 {
 		sessOptions.Config.Region = aws.String(config.AwsRegion)
 	}
 	sess = session.Must(session.NewSessionWithOptions(sessOptions))
-	return s3.New(sess)
+	s := s3.New(sess)
+	return s
 }
 
 // FetchS3ObjectKeys returns a slice of keys for all objects in the specified bucket and prefix

@@ -48,7 +48,7 @@ var (
 
 var rootCmd = &cobra.Command{
 	Use:   "stree [bucket/prefix]",
-	Short: "stree is a command line tool for visualizing the structure of S3 buckets",
+	Short: "stree is a command line tool for visualizing the structure of cloudflare R2",
 	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 
@@ -61,6 +61,7 @@ var rootCmd = &cobra.Command{
 
 		s3Svc := pkg.InitializeAWSSession(s3Config)
 
+		fmt.Printf("Fetching S3 object keys for bucket %s...\n", args[0])
 		bucket, prefix, err := extractBucketAndPrefix(args[0])
 		if err != nil {
 			log.Fatalf("failed to extract bucket and prefix: %v", err)

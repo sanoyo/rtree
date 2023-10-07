@@ -22,14 +22,38 @@ THE SOFTWARE.
 package main
 
 import (
-	"time"
+	"context"
+	"fmt"
+	"log"
 
-	"github.com/sanoyo/rtree/cmd"
+	"github.com/cloudflare/cloudflare-go"
 )
 
 const version = "0.0.1"
 
 func main() {
-	cmd.SetVersionInfo(version, time.Now().String())
-	cmd.Execute()
+	// api, err := cloudflare.New(os.Getenv("CLOUDFLARE_API_KEY"), os.Getenv("CLOUDFLARE_API_EMAIL"))
+	// alternatively, you can use a scoped API token
+	api, err := cloudflare.NewWithAPIToken("sample")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Most API calls require a Context
+	ctx := context.Background()
+
+	// Fetch user details on the account
+	u, err := api.ListR2Buckets(
+		ctx,
+		&cloudflare.ResourceContainer{
+			Identifier: "sample",
+		},
+		cloudflare.ListR2BucketsParams{
+			Name: "test",
+		},
+	)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(u)
 }
