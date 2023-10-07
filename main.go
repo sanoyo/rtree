@@ -27,6 +27,8 @@ import (
 	"github.com/sanoyo/rtree/cmd"
 )
 
+const version = "0.0.1"
+
 func main() {
 	cmd.SetVersionInfo(version, time.Now().String())
 	cmd.Execute()
